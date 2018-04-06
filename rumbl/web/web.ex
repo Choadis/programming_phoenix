@@ -5,8 +5,8 @@ defmodule Rumbl.Web do
 
   This can be used in your application as:
 
-      use Rumbl.Web, :controller
-      use Rumbl.Web, :view
+  use Rumbl.Web, :controller
+  use Rumbl.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -22,7 +22,7 @@ defmodule Rumbl.Web do
 
       import Ecto
       import Ecto.Changeset
-      import Ecto.Query
+      import Ecto.Query, only: [from: 1, from: 2]
     end
   end
 
@@ -32,7 +32,7 @@ defmodule Rumbl.Web do
 
       alias Rumbl.Repo
       import Ecto
-      import Ecto.Query
+      import Ecto.Query, only: [from: 1, from: 2]
 
       import Rumbl.Router.Helpers
       import Rumbl.Gettext
@@ -44,7 +44,9 @@ defmodule Rumbl.Web do
       use Phoenix.View, root: "web/templates"
 
       # Import convenience functions from controllers
-      import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1]
+      import Phoenix.Controller, only: [get_csrf_token: 0,
+      get_flash: 2,
+      view_module: 1]
 
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
@@ -67,7 +69,7 @@ defmodule Rumbl.Web do
 
       alias Rumbl.Repo
       import Ecto
-      import Ecto.Query
+      import Ecto.Query, only: [from: 1, from: 2]
       import Rumbl.Gettext
     end
   end
