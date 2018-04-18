@@ -18,12 +18,10 @@ defmodule Rumbl.Video do
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
-  @required_fields ~w(url title description)
-  @optional_fields ~w()
 
   def changeset(model, params \\ :invalid) do
     model
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, [:url, :title, :description, :category_id])
     |> slugify_title()
     |> assoc_constraint(:category)
   end
